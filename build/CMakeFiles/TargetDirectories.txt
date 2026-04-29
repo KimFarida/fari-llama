@@ -1,0 +1,3 @@
+/Users/kimfarida/Projects/fari-llama/build/CMakeFiles/fari-llama.dir
+/Users/kimfarida/Projects/fari-llama/build/CMakeFiles/edit_cache.dir
+/Users/kimfarida/Projects/fari-llama/build/CMakeFiles/rebuild_cache.dir
