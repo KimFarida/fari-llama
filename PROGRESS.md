@@ -6,7 +6,7 @@
 **Stuck on:** 
 **Tomorrow:**
 
-## April 29 2026
+## April 28 2026
 **Did:** 
 - Scaffolded fari-llama repo, physio, SIWES, LC206 reversed linked list
 
@@ -18,7 +18,7 @@
 
 **Tomorrow:** Light day (physio), read [Jay Alammar's Illustrated GPT-2 intro](https://jalammar.github.io/illustrated-gpt2/)
 
-## April 30 2026
+## April 29 2026
 **Did:** 
 - Physio
 - CMake build configured and running
