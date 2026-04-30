@@ -46,3 +46,44 @@
 - Implement tokenizer encode() and decode() in Python
 - Download TinyLlama vocabulary
 - Validate against HuggingFace output
+
+
+## April 30 2026
+**Did:** Python tokenizer implemented and validated, CMake 
+build running, LC143 Reorder List solved in C++
+
+**Learned:** 
+- HTTP request lifecycle (DNS→TCP→TLS→request→response)
+HTTP Request how it works
+DNS Resolution -> 
+TCP Handshake ->
+TLS Hnadshake ->
+HTTP Request(Method, Path, Headers(metadata), Body)->
+Server Processing ->
+HTTP Response (Status, Headers, Body)-> 
+Connection Handling 1.0/1.1(keep-alive)/1.2(Parrallel)/1.3(UDP)
+```
+Client          DNS          Server
+  |              |              |
+  |--DNS query-->|              |
+  |<--IP addr----|              |
+  |                             |
+  |--------TCP SYN------------->|
+  |<-------TCP SYN-ACK----------|
+  |--------TCP ACK------------->|
+  |                             |
+  |--------TLS handshake------->|
+  |<-------TLS handshake--------|
+  |                             |
+  |--------HTTP Request-------->|
+  |<-------HTTP Response--------|
+```
+- BPE subword tokenization
+![Terminal Output](./images/Screenshot%202026-04-30%20at%2013.48.14.png)
+- fast/slow pointer for finding list middle, three-step reorder pattern (split + reverse + merge)
+
+**Stuck on:** merge() design — return value vs void, 
+cleaner pointer weaving without counter
+
+**Tomorrow:** Begin C++ tokenizer header, intro to 
+transformer weight structure
