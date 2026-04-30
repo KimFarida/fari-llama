@@ -1,0 +1,16 @@
+# Virtual environment
+.fari-llama-venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Build
+build/
+
+# Models
+models/
+*.bin
+*.gguf
+*.safetensors
