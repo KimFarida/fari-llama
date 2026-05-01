@@ -87,3 +87,29 @@ cleaner pointer weaving without counter
 
 **Tomorrow:** Begin C++ tokenizer header, intro to 
 transformer weight structure
+
+## May 1 2026
+**Did:**
+- Created C++ tokenizer header (include/tokenizer.h)
+- LC238 Product of Array Except Self — Python, both O(n) 
+  space and O(1) space solutions
+
+**Learned:**
+- `explicit` keyword — prevents implicit constructor conversion
+- unordered_map vs map — O(1) vs O(log n) lookup, speed matters 
+  at inference scale
+- Bidirectional maps — encode and decode need separate 
+  O(1) lookups in opposite directions
+- KV Cache — saves K,V pairs from previous tokens to avoid 
+  recomputation, append-only within a single sequence
+- LRU/LFU/FIFO eviction — relevant for multi-sequence cache 
+  management in Phase 6
+- Prefix/suffix product pattern — O(1) space by using output 
+  array as running product store
+
+**Stuck on:**
+- KV Cache eviction context — confused on single-sequence 
+  (append-only) with multi-sequence (eviction needed)
+
+**Tomorrow:**
+- Rest day or light reading
