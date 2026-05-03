@@ -113,3 +113,25 @@ transformer weight structure
 
 **Tomorrow:**
 - Rest day or light reading
+
+## May 3 2026
+**Did:**
+- LC226 Invert Binary Tree — recursive DFS, Python
+- LC104 added to trees folder
+- Transformer weight structure — full mental model
+
+**Learned:**
+- TinyLlama has 22 layers, each with attention + MLP + norm
+- Embedding table [32000 x 2048] — one vector per token
+- Q/K/V separation — different roles in attention mechanism
+- Layer norm — prevents numerical explosion between layers
+- Embedding dimension (2048) flows through entire model
+
+**Stuck on:**
+- Q/K/V intuition — know they're separate, still building 
+  feel for what each one does geometrically
+
+**Next week:**
+- Load TinyLlama weights in Python
+- Implement matrix multiply in C++
+- Start attention forward pass
