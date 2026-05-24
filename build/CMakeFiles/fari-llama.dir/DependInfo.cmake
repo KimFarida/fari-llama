@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/kimfarida/Projects/fari-llama/src/main.cpp" "CMakeFiles/fari-llama.dir/src/main.cpp.o" "gcc" "CMakeFiles/fari-llama.dir/src/main.cpp.o.d"
+  "/Users/kimfarida/Projects/fari-llama/src/matmul.cpp" "CMakeFiles/fari-llama.dir/src/matmul.cpp.o" "gcc" "CMakeFiles/fari-llama.dir/src/matmul.cpp.o.d"
+  "/Users/kimfarida/Projects/fari-llama/src/model.cpp" "CMakeFiles/fari-llama.dir/src/model.cpp.o" "gcc" "CMakeFiles/fari-llama.dir/src/model.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

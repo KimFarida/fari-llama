@@ -135,3 +135,32 @@ transformer weight structure
 - Load TinyLlama weights in Python
 - Implement matrix multiply in C++
 - Start attention forward pass
+
+## May 20 2026
+**Did:**
+- Downloaded TinyLlama weights (model.safetensors, 2.2GB)
+- Wrote python/inspect_weights.py — confirmed all weight shapes
+- Exported embed_tokens to binary (python/export_weights.py)
+- Implemented matmul in C++ with row-major indexing
+- Created include/model.h and src/model.cpp
+- Implemented embedding_lookup — loads and indexes flat weight vector
+- Implemented rms_norm — RMSNorm formula from scratch
+- Loaded real weights into C++ and verified embedding lookup output
+- LC572 Subtree of Another Tree — fixed dfs + isSameTree separation
+- LC15 3Sum — two pointer with duplicate skipping
+
+**Learned:**
+- GQA (Grouped Query Attention) — K/V are [256x2048] not [2048x2048]
+  because only 4 K/V heads shared across 32 Q heads. K/V cached,
+  Q is not — so shrinking K/V saves memory at inference
+- Row-major indexing — element (i,j) in matrix of width K is at [i*K + j]
+- reinterpret_cast — reading raw binary floats from file into vector
+- Embedding table is fixed after training, BPE guarantees no OOV
+- RMSNorm formula: y = (x / sqrt(mean(x²) + ε)) * weight
+
+**Stuck on:**
+- Full forward pass linearity — how all pieces connect end to end
+
+**Tomorrow:**
+- Attention mechanism — Q, K, V projections (three matmuls)
+- Export remaining weights from Python

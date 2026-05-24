@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Main executable
 add_executable(fari-llama
     src/main.cpp
+    src/matmul.cpp
+    src/model.cpp
 )
 
 # Headers

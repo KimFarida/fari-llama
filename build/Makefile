@@ -153,6 +153,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/matmul.o: src/matmul.cpp.o
+.PHONY : src/matmul.o
+
+# target to build an object file
+src/matmul.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/matmul.cpp.o
+.PHONY : src/matmul.cpp.o
+
+src/matmul.i: src/matmul.cpp.i
+.PHONY : src/matmul.i
+
+# target to preprocess a source file
+src/matmul.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/matmul.cpp.i
+.PHONY : src/matmul.cpp.i
+
+src/matmul.s: src/matmul.cpp.s
+.PHONY : src/matmul.s
+
+# target to generate assembly for a file
+src/matmul.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/matmul.cpp.s
+.PHONY : src/matmul.cpp.s
+
+src/model.o: src/model.cpp.o
+.PHONY : src/model.o
+
+# target to build an object file
+src/model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/model.cpp.o
+.PHONY : src/model.cpp.o
+
+src/model.i: src/model.cpp.i
+.PHONY : src/model.i
+
+# target to preprocess a source file
+src/model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/model.cpp.i
+.PHONY : src/model.cpp.i
+
+src/model.s: src/model.cpp.s
+.PHONY : src/model.s
+
+# target to generate assembly for a file
+src/model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fari-llama.dir/build.make CMakeFiles/fari-llama.dir/src/model.cpp.s
+.PHONY : src/model.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +213,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/matmul.o"
+	@echo "... src/matmul.i"
+	@echo "... src/matmul.s"
+	@echo "... src/model.o"
+	@echo "... src/model.i"
+	@echo "... src/model.s"
 .PHONY : help
 
 
