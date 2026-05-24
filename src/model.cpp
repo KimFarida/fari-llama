@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdexcept>
 #include <iostream>
+#include <cmath>
 
 
 // Lookup table function, gets the row based on token id from embedded table
@@ -21,6 +22,7 @@ std::vector<float> embedding_lookup(
     return res;
 };
 
+// Load weights in binary form to c++
 void load_weights(TinyLlamaWeights& weights, const std::string& model_dir){
     std::string path = model_dir + "/embed_tokens.bin";
     std::ifstream f(path, std::ios::binary);
@@ -33,4 +35,26 @@ void load_weights(TinyLlamaWeights& weights, const std::string& model_dir){
     if (!f) throw std::runtime_error("Failed to read embed_tokens.bin");
     std::cout << "Loaded embed_tokens: " << total << " floats\n";
 
-}
+};
+
+std:: vector<float> rms_norm(
+    const std::vector<float>& x,
+    const std::vector<float>& weight,
+    float epsilon = 1e-5f
+){
+
+    // square every element in x
+    float sum_of_squares = 0;
+    int size = x.size();
+
+    for(int i = 0; i < size; i++) sum_of_squares += x[i] * x[i];
+
+    float mean_squares = sum_of_squares/size;
+    float z = sqrt(mean_squares + epsilon);
+
+    std::vector<float> y(size);
+
+    for(int i = 0; i < size; i++) y[i] =  (x[i]/z) *weight[i];
+    return y;
+
+};

@@ -12,9 +12,12 @@ struct TinyLlamaWeights{
 };
 
 
-std::vector<float> embedding_lookup(
-    const TinyLlamaWeights& weights,
-    int token_id
-);
+std::vector<float> embedding_lookup(const TinyLlamaWeights& weights, int token_id);
 
 void load_weights(TinyLlamaWeights& weights, const std::string& model_dir);
+
+std:: vector<float> rms_norm(
+    const std::vector<float>& x,
+    const std::vector<float>& weight,
+    float epsilon
+);
