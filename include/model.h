@@ -4,11 +4,23 @@
 
 
 struct TinyLlamaWeights{
+    // Embedding
     std::vector<float> embed_tokens; // [32000 * 32048]
+
+    // Layer 0 attention weights
+    std::vector<float> q_proj_0; //[2048 x 2048]
+    std::vector<float> k_proj_0; // [256 * 2048]
+    std::vector<float> v_proj_0; // [256 * 2048]
+    std::vector<float> o_proj_0; // [2048 * 2048]
 
     int vocab_size = 32000;
     int hidden_size = 2048;
     int num_layers = 22;
+    int num_heads = 32;
+    int num_kv_heads = 4;
+    int head_dim = 64;
+
+
 };
 
 

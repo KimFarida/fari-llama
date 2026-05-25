@@ -24,18 +24,63 @@ std::vector<float> embedding_lookup(
 
 // Load weights in binary form to c++
 void load_weights(TinyLlamaWeights& weights, const std::string& model_dir){
-    std::string path = model_dir + "/embed_tokens.bin";
-    std::ifstream f(path, std::ios::binary);
-    if (!f) throw std::runtime_error("Cannot open " + path);
+    // embed_tokens: 32000 x 2048
+    {
+        std::string path = model_dir + "/embed_tokens.bin";
+        std::ifstream f(path, std::ios::binary);
+        if (!f) throw std::runtime_error("Cannot open " + path);
+        int total = weights.vocab_size * weights.hidden_size;
+        weights.embed_tokens.resize(total);
+        f.read(reinterpret_cast<char*>(weights.embed_tokens.data()), total * sizeof(float));
+        std::cout << "Loaded embed_tokens: " << total << " floats\n";
+    }
+    
+    // q_proj_0: 2048 x 2048
+    {
+        std::string path = model_dir + "/q_proj_0.bin";
+        std::ifstream f(path, std::ios::binary);
+        if (!f) throw std::runtime_error("Cannot open " + path);
+        int total = weights.hidden_size * weights.hidden_size;
+        weights.q_proj_0.resize(total);
+        f.read(reinterpret_cast<char*>(weights.q_proj_0.data()), total * sizeof(float));
+        std::cout << "Loaded q_proj_0: " << total << " floats\n";
+    }
+    
+    // k_proj_0: 256 x 2048
+    {
+         std::string path = model_dir + "/k_proj_0.bin";
+        std::ifstream f(path, std::ios::binary);
+        if (!f) throw std::runtime_error("Cannot open " + path);
+        int total = (weights.num_kv_heads * weights.head_dim) * weights.hidden_size;
+        weights.k_proj_0.resize(total);
+        f.read(reinterpret_cast<char*>(weights.k_proj_0.data()), total * sizeof(float));
+        std::cout << "Loaded k_proj_0: " << total << " floats\n";
+    }
+    
+    
+    // v_proj_0: 256 x 2048 
+    {
+        std::string path = model_dir + "/v_proj_0.bin";
+        std::ifstream f(path, std::ios::binary);
+        if (!f) throw std::runtime_error("Cannot open " + path);
+        int total = (weights.num_kv_heads * weights.head_dim) * weights.hidden_size;
+        weights.v_proj_0.resize(total);
+        f.read(reinterpret_cast<char*>(weights.v_proj_0.data()), total * sizeof(float));
+        std::cout << "Loaded v_proj_0: " << total << " floats\n";
+    }
 
-    int total = weights.vocab_size * weights.hidden_size;
-    weights.embed_tokens.resize(total);
-    f.read(reinterpret_cast<char*>(weights.embed_tokens.data()), total * sizeof(float));
+    // o_proj_0: 2048 x 2048
+    {
+        std::string path = model_dir + "/o_proj_0.bin";
+        std::ifstream f(path, std::ios::binary);
+        if (!f) throw std::runtime_error("Cannot open " + path);
+        int total =  weights.hidden_size * weights.hidden_size;
+        weights.o_proj_0.resize(total);
+        f.read(reinterpret_cast<char*>(weights.o_proj_0.data()), total * sizeof(float));
+        std::cout << "Loaded o_proj_0: " << total << " floats\n";
+    }
+}
 
-    if (!f) throw std::runtime_error("Failed to read embed_tokens.bin");
-    std::cout << "Loaded embed_tokens: " << total << " floats\n";
-
-};
 
 std:: vector<float> rms_norm(
     const std::vector<float>& x,
