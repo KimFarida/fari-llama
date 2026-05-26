@@ -12,7 +12,7 @@ struct TinyLlamaWeights{
     std::vector<float> k_proj_0; // [256 * 2048]
     std::vector<float> v_proj_0; // [256 * 2048]
     std::vector<float> o_proj_0; // [2048 * 2048]
-
+   
     int vocab_size = 32000;
     int hidden_size = 2048;
     int num_layers = 22;
@@ -32,4 +32,9 @@ std:: vector<float> rms_norm(
     const std::vector<float>& x,
     const std::vector<float>& weight,
     float epsilon
+);
+
+std::vector<float> attention_forward(
+        const TinyLlamaWeights& weights,
+        const std::vector<float>& x
 );
