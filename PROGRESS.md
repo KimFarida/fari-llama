@@ -164,3 +164,24 @@ transformer weight structure
 **Tomorrow:**
 - Attention mechanism — Q, K, V projections (three matmuls)
 - Export remaining weights from Python
+
+## May 21 - May 26 2026
+**Did:**
+- Exported attention weights to binary (q_proj, k_proj, v_proj, o_proj for layer 0)
+- Loaded all attention weights into C++ TinyLlamaWeights struct
+- Implemented attention_forward — Q/K/V projections, GQA head loop, output projection
+- Understood single head attention first, then generalized to all 32 heads
+
+**Learned:**
+- GQA group size = num_heads / num_kv_heads = 8, every 8 Q heads share 1 K/V head
+- Attention scores scaled by 1/sqrt(head_dim) to prevent softmax saturation
+- o_proj mixes information across all heads into single coherent representation
+- Single token attention simplifies — no softmax needed, just scale V by score
+
+**Stuck on:**
+- Nothing blocking, forward pass linearity is clearer now
+
+**Tomorrow:**
+- MLP forward pass (gate_proj, up_proj, down_proj)
+- Export MLP weights from Python
+- Wire attention + MLP into single layer forward pass
